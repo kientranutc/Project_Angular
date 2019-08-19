@@ -1,0 +1,41 @@
+<div class="add-row-dymanic">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" (click)="addItem()">Add more</button>
+            </div>
+        </div>
+        <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+            <div class="card m-3">
+                <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <h5 class="card-title">Row:{{i + 1}}</h5>
+                        <div [formGroup]="ticket" class="form-row">
+                            <div class="form-group col-md-4 col-12">
+                                <label class="sr-only">Name</label>
+                                <input type="text" formControlName="name" placeholder="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && ticket.controls.name.errors }" />
+                                <div *ngIf="submitted && ticket.controls.name.errors" class="invalid-feedback">
+                                    <div *ngIf="ticket.controls.name.errors.required">Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-12">
+                                <label class="sr-only">Email</label>
+                                <input type="text" formControlName="email" placeholder="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && ticket.controls.email.errors }" />
+                                <div *ngIf="submitted && ticket.controls.email.errors" class="invalid-feedback">
+                                    <div *ngIf="ticket.controls.email.errors.required">Email is required</div>
+                                    <div *ngIf="ticket.controls.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-12 delete-item" *ngIf="i>0">
+                                <button type="button" (click)="removeItem(i)" class="btn btn-danger">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary mr-1">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
