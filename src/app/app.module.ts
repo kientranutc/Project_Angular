@@ -4,16 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddRowDymanicComponent } from './add-row-dymanic/add-row-dymanic.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddRowDymanicComponent
+    AddRowDymanicComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

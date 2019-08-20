@@ -1,0 +1,25 @@
+<div class="data-table">
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of Customers">
+                    <th scope="row">{{customer.id}}</th>
+                    <td>
+                        <img class="" src="{{customer.picture}}" alt="{{customer.picture}}">
+                    </td>
+                    <td>{{customer.firstName}}{{customer.lastName}}</td>
+                    <td>{{customer.company}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
